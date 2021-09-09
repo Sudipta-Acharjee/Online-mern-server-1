@@ -16,7 +16,7 @@ const port = 5000;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
   const services = client.db("educationSite").collection("subjects");
-  app.post('/learnerData', (req, res) => {
+  app.post('/addService', (req, res) => {
     const serviceInfo = req.body;
     console.log(serviceInfo);
     // learnerCollection.insertOne(learnerInfo)
