@@ -1,4 +1,6 @@
-const express = require('express')
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const { MongoClient } = require('mongodb');
 require('dotenv').config()
 
@@ -10,9 +12,11 @@ const port = 5000;
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
-  const collection = client.db("educationSite").collection("subjects");
-  console.log("Database Connected");
-  
+  const services = client.db("educationSite").collection("subjects");
+  app.post('/addService', (req, res => {
+    const service = req.body;
+    services.insertMany()
+  }))
 });
 
 
